@@ -9,6 +9,9 @@ export class Chapter {
   @Column()
   chapter_title: string;
 
+  @Column({ type: 'longtext', nullable: true })
+  concept_content: string;
+
   @Column()
   sort_order: number;
 

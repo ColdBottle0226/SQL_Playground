@@ -1,0 +1,228 @@
+/* ============================================================
+   CONCEPT PAGE
+   ============================================================ */
+.concept-page-wrap {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg);
+  padding: 32px 40px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* concept-page div (HTML에서 주입) */
+.concept-page h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+  font-family: var(--sans);
+}
+
+.concept-page section {
+  margin-bottom: 32px;
+}
+
+.concept-page h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.concept-page h3::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--yellow);
+  border-radius: 2px;
+}
+
+.concept-page p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #cdd9e5;
+  margin-bottom: 12px;
+}
+
+.concept-page .code-block {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.8;
+  color: #e6edf3;
+  white-space: pre;
+  overflow-x: auto;
+  margin: 10px 0 14px;
+  scrollbar-width: thin;
+}
+
+.concept-page .tip {
+  background: rgba(210, 153, 34, 0.08);
+  border: 1px solid rgba(210, 153, 34, 0.3);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--yellow);
+  margin-top: 8px;
+}
+
+.concept-page .compare-table {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.concept-page .compare-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.concept-page .compare-row:last-child {
+  border-bottom: none;
+}
+
+.concept-page .compare-row .label {
+  background: var(--surface2);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 14px;
+  width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+}
+
+.concept-page .compare-row span:last-child {
+  padding: 8px 14px;
+  color: #cdd9e5;
+  line-height: 1.5;
+}
+
+/* 문제 설명 안의 인라인 코드 */
+.inline-code {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--purple);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.8;
+  color: #e6edf3;
+  white-space: pre;
+  overflow-x: auto;
+  margin: 8px 0 4px;
+  display: block;
+}
+
+/* ============================================================
+   CONCEPT SIDEBAR ITEM
+   ============================================================ */
+.concept-item {
+  border-left-color: transparent;
+}
+
+.concept-item .pi-check.concept-icon {
+  border: none;
+  background: none;
+  font-size: 13px;
+  width: 16px;
+  height: 16px;
+}
+
+.concept-item:hover {
+  background: rgba(210, 153, 34, 0.08);
+}
+
+.concept-item.active {
+  background: rgba(210, 153, 34, 0.12);
+  border-left-color: var(--yellow);
+}
+
+.pi-diff.diff-concept {
+  background: rgba(210, 153, 34, 0.15);
+  color: var(--yellow);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ============================================================
+   WELCOME SCREEN
+   ============================================================ */
+.welcome-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--muted);
+  padding: 40px;
+  text-align: center;
+}
+
+.welcome-icon {
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+.welcome-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 380px;
+}
+
+.welcome-desc strong {
+  color: var(--yellow);
+}
+
+.welcome-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.ws-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ws-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--mono);
+}
+
+.ws-item span:last-child {
+  font-size: 12px;
+  color: var(--muted);
+}

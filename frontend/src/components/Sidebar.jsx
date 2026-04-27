@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const DIFF_MAP = { easy: '쉬움', medium: '보통', hard: '어려움' };
 const DIFF_CLASS = { easy: 'diff-easy', medium: 'diff-medium', hard: 'diff-hard' };
 
-export default function Sidebar({ grouped, solvedSet, currentId, onSelect }) {
+export default function Sidebar({ grouped, solvedSet, currentId, currentConceptChapterId, onSelect, onSelectConcept }) {
   const [collapsed, setCollapsed] = useState({});
 
   const toggle = (chId) =>
@@ -16,14 +16,28 @@ export default function Sidebar({ grouped, solvedSet, currentId, onSelect }) {
         {grouped.map((ch) => {
           const solvedCount = ch.items.filter((p) => solvedSet.has(p.problem_id)).length;
           const isOpen = !collapsed[ch.chapter_id];
+          const conceptActive = currentConceptChapterId === ch.chapter_id;
+
           return (
             <div key={ch.chapter_id} className="chapter-group">
               <div className="chapter-title" onClick={() => toggle(ch.chapter_id)}>
                 <span>CH{ch.chapter_id}. {ch.chapter_title}</span>
                 <span className="ch-num">{solvedCount}/{ch.items.length}</span>
               </div>
+
               {isOpen && (
                 <div className="problem-list">
+                  {/* 개념 설명 항목 — 챕터 첫 번째 */}
+                  <div
+                    className={`problem-item concept-item ${conceptActive ? 'active' : ''}`}
+                    onClick={() => onSelectConcept(ch)}
+                  >
+                    <div className="pi-check concept-icon">📖</div>
+                    <div className="pi-title">개념 설명</div>
+                    <div className="pi-diff diff-concept">개념</div>
+                  </div>
+
+                  {/* 문제 목록 */}
                   {ch.items.map((p) => {
                     const solved = solvedSet.has(p.problem_id);
                     const active = currentId === p.problem_id;

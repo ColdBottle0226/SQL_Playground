@@ -7,22 +7,39 @@ import SqlEditor from './components/SqlEditor';
 import ResultPanel from './components/ResultPanel';
 import SchemaPanel from './components/SchemaPanel';
 import HintModal from './components/HintModal';
+import ConceptPage from './components/ConceptPage';
 
+// 현재 뷰 모드
+// 'concept' | 'problem'
 export default function App() {
   const { grouped, problems, schema, loading, error, solvedSet, markSolved } = usePlayground();
+
+  const [viewMode, setViewMode] = useState('welcome'); // 'welcome' | 'concept' | 'problem'
   const [currentProblem, setCurrentProblem] = useState(null);
+  const [currentConceptChapter, setCurrentConceptChapter] = useState(null);
+
   const [sql, setSql] = useState('');
   const [runResult, setRunResult] = useState(null);
   const [gradeResult, setGradeResult] = useState(null);
   const [activeTab, setActiveTab] = useState('run');
   const [hintVisible, setHintVisible] = useState(false);
 
+  // 문제 선택
   const selectProblem = (p) => {
     setCurrentProblem(p);
+    setCurrentConceptChapter(null);
+    setViewMode('problem');
     setSql('');
     setRunResult(null);
     setGradeResult(null);
     setActiveTab('run');
+  };
+
+  // 개념 설명 선택
+  const selectConcept = (chapter) => {
+    setCurrentConceptChapter(chapter);
+    setCurrentProblem(null);
+    setViewMode('concept');
   };
 
   const handleRun = async () => {
@@ -111,26 +128,56 @@ export default function App() {
           grouped={grouped}
           solvedSet={solvedSet}
           currentId={currentProblem?.problem_id}
+          currentConceptChapterId={currentConceptChapter?.chapter_id}
           onSelect={selectProblem}
+          onSelectConcept={selectConcept}
         />
 
         <main className="main">
-          <ProblemPanel problem={currentProblem} />
-          <SqlEditor
-            value={sql}
-            onChange={setSql}
-            onRun={handleRun}
-            onSubmit={handleSubmit}
-            onHint={handleHint}
-            onAnswer={handleAnswer}
-            onReset={handleReset}
-          />
-          <ResultPanel
-            runResult={runResult}
-            gradeResult={gradeResult}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
-          />
+          {/* 개념 설명 뷰 */}
+          {viewMode === 'concept' && (
+            <ConceptPage chapter={currentConceptChapter} />
+          )}
+
+          {/* 문제 풀이 뷰 */}
+          {viewMode === 'problem' && (
+            <>
+              <ProblemPanel problem={currentProblem} />
+              <SqlEditor
+                value={sql}
+                onChange={setSql}
+                onRun={handleRun}
+                onSubmit={handleSubmit}
+                onHint={handleHint}
+                onAnswer={handleAnswer}
+                onReset={handleReset}
+              />
+              <ResultPanel
+                runResult={runResult}
+                gradeResult={gradeResult}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+              />
+            </>
+          )}
+
+          {/* 초기 웰컴 화면 */}
+          {viewMode === 'welcome' && (
+            <div className="welcome-screen">
+              <div className="welcome-icon">🗄️</div>
+              <div className="welcome-title">SQL Playground</div>
+              <div className="welcome-desc">
+                왼쪽 사이드바에서 챕터를 선택하세요.<br />
+                <strong>📖 개념 설명</strong>으로 개념을 먼저 익히고,<br />
+                문제를 풀어보세요!
+              </div>
+              <div className="welcome-stats">
+                <div className="ws-item"><span className="ws-num">{total}</span><span>총 문제</span></div>
+                <div className="ws-item"><span className="ws-num">{solved}</span><span>해결</span></div>
+                <div className="ws-item"><span className="ws-num">{total - solved}</span><span>남은 문제</span></div>
+              </div>
+            </div>
+          )}
         </main>
 
         <SchemaPanel schema={schema} />
