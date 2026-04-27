@@ -3,6 +3,10 @@
 > **실무 SELECT 마스터** — React + NestJS + MySQL 8.0
 
 ---
+## Preview
+<img width="2924" height="1532" alt="image" src="https://github.com/user-attachments/assets/ef952d93-9c84-483b-bcfc-cb75250d56b3" />
+
+
 
 ## 🗂 프로젝트 구조
 
