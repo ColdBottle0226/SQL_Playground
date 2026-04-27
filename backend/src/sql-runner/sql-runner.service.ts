@@ -39,13 +39,13 @@ export class SqlRunnerService {
     if (!isSafeQuery(userSql))
       throw new BadRequestException('SELECT 구문만 실행할 수 있습니다.');
 
-    const runner = this.dataSource.createQueryRunner();
-    await runner.connect();
+    const runner1 = this.dataSource.createQueryRunner();
+    const runner2 = this.dataSource.createQueryRunner();
+    await runner1.connect();
+    await runner2.connect();
     try {
-      const [userRows, ansRows] = await Promise.all([
-        runner.query(userSql),
-        runner.query(answerSql),
-      ]);
+      const userRows = await runner1.query(userSql);
+      const ansRows = await runner2.query(answerSql);
 
       const toStr = (rows: any[]) =>
         JSON.stringify(
@@ -65,7 +65,8 @@ export class SqlRunnerService {
     } catch (e) {
       throw new BadRequestException(e.message);
     } finally {
-      await runner.release();
+      await runner1.release();
+      await runner2.release();
     }
   }
 }
