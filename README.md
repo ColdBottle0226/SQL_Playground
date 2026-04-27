@@ -1,13 +1,23 @@
-# SQL Playground 🎯
+<img width="1964" height="1442" alt="image" src="https://github.com/user-attachments/assets/3554b3fd-c7d9-4119-bd11-60a422d1824a" /># SQL Playground 🎯
 
 > **실무 SQL 문제** — React + NestJS + MySQL 8.0
 
 ---
 ## Preview
-<img width="2924" height="1532" alt="image" src="https://github.com/user-attachments/assets/ef952d93-9c84-483b-bcfc-cb75250d56b3" />
+1. 개념설명
+<img width="2498" height="1474" alt="image" src="https://github.com/user-attachments/assets/6ea724ff-ed0c-435d-8e81-d98b530e68aa" />
+<br/>
+<br/>
+2. 사이드 문제목록 및 풀이현황
+<img width="524" height="1314" alt="image" src="https://github.com/user-attachments/assets/31c9f7e5-491a-43bd-a136-b0da9295bd05" />
+<br/>
+<br/>
+3. 문제풀이 및 채점
+<img width="1964" height="1442" alt="image" src="https://github.com/user-attachments/assets/c7c48600-32cd-47b0-b2ec-430edf597f8a" />
 
 
 
+---
 ## 🗂 프로젝트 구조
 
 ```
