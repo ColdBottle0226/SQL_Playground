@@ -1,6 +1,6 @@
 # SQL Playground 🎯
 
-> **실무 SELECT 마스터** — React + NestJS + MySQL 8.0
+> **실무 SQL 문제** — React + NestJS + MySQL 8.0
 
 ---
 ## Preview
