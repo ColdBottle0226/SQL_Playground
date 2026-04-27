@@ -1,4 +1,4 @@
-<img width="1964" height="1442" alt="image" src="https://github.com/user-attachments/assets/3554b3fd-c7d9-4119-bd11-60a422d1824a" /># SQL Playground 🎯
+# SQL Playground 🎯
 
 > **실무 SQL 문제** — React + NestJS + MySQL 8.0
 
