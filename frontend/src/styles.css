@@ -1,0 +1,32 @@
+.schema-col { padding: 3px 22px; color: var(--muted); font-family: var(--mono); font-size: 11px; display: flex; justify-content: space-between; }
+.col-type { color: var(--purple); font-size: 10px; }
+
+/* ─── SCHEMA SECTION HEADER ─────────────────────── */
+.schema-section-header {
+  padding: 6px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: rgba(88,166,255,0.07);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── EMPTY STATE ───────────────────────────────── */
+.empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 12px; color: var(--muted); }
+.empty-icon { font-size: 40px; }
+.empty-text { font-size: 14px; }
+
+/* ─── MODAL ─────────────────────────────────────── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; display: flex; align-items: center; justify-content: center; }
+.modal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; width: 480px; max-width: 90vw; }
+.modal-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--yellow); }
+.modal-body { font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--text); background: var(--code-bg); padding: 12px 16px; border-radius: 6px; }
+.modal-close { margin-top: 16px; text-align: right; }
+
+/* ─── SCROLLBAR ─────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
